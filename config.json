@@ -1,6 +1,11 @@
 {
     "bot": {
-        "token": ""
+        "token": "",
+        "languages_folder": "./languages/",
+        "languages_list": {
+            "ru": "ru_lang.json",
+            "en": "ru_lang.json"
+        }
     },
     "database": {
         "host": "",
