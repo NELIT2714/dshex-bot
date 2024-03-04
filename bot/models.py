@@ -12,6 +12,7 @@ class Users(Base):
     first_name = Column(String(30), nullable=False)
     last_name = Column(String(30), nullable=True)
     lang_code = Column(String(5), nullable=False)
+    admin = Column(Boolean, default=False)
     timestamp = Column(BigInteger, nullable=False, default=func.unix_timestamp())
 
     def __init__(self, telegram_id, first_name, last_name, lang_code):

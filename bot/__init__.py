@@ -1,7 +1,9 @@
 import json
 import logging
+import os
 
 from aiogram import Dispatcher, Bot
+from aiogram import types
 
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
@@ -31,4 +33,4 @@ async def run_bot():
 
 from bot import models
 from bot.commands import start, db
-# from callbacks import *
+from bot.callbacks import main_menu, services, portfolio, info, my_orders, admin

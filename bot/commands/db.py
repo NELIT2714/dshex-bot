@@ -9,3 +9,7 @@ from bot import bot, dp, Base, engine
 async def db_cmd(message: Message) -> None:
     Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)
+    await bot.send_message(
+        chat_id=message.from_user.id,
+        text="бд пересоздана"
+    )

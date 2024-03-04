@@ -1,0 +1,35 @@
+version: '3.7'
+
+services:
+  dshex-bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    volumes:
+      - .:/dshex-bot
+
+  db:
+    container_name: mysql
+    image: mysql:latest
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=dshex-bot
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-vol:/var/lib/mysql
+
+  phpmyadmin:
+    container_name: phpmyadmin
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "80:80"
+
+volumes:
+  db-vol:

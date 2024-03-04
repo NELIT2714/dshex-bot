@@ -1,0 +1,24 @@
+{
+  "messages": {
+    "info": {
+      "start_message": "Стартовое сообщение",
+      "main_menu": "{user}, вы попали в главное меню бота. Куда отправимся дальше?",
+      "services": "Услуги. Тут будет много текста: {services}",
+      "new_service": "*Добавление новой услуги*\n\nНазвание: *{service_name}*\nОписание: {service_description}\nЦена (от - до): {service_price}",
+      "send_service_name": "Отправьте название услуги"
+    },
+    "errors": {
+
+    }
+  },
+  "buttons": {
+    "main_menu": "Главное меню",
+    "change_lang": "Сменить язык",
+    "services": "Услуги",
+    "portfolio": "Портфолио",
+    "info": "Информация",
+    "my_orders": "Мои заказы",
+    "add_service": "Добавить услугу",
+    "back": "Вернуться назад"
+  }
+}
