@@ -1,12 +1,12 @@
 {
     "bot": {
-        "token": "6926464019:AAFVIWXFAEokgNG9wL23e2hJfWMlF7lBwGk"
+        "token": ""
     },
     "database": {
-        "host": "localhost",
-        "user": "root",
-        "password": "root",
-        "database": "dshex-bot",
+        "host": "",
+        "user": "",
+        "password": "",
+        "database": "",
         "port": 3306
     }
 }
