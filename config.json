@@ -1,12 +1,17 @@
 {
     "bot": {
-        "token": "6926464019:AAFVIWXFAEokgNG9wL23e2hJfWMlF7lBwGk"
+        "token": "",
+        "languages_folder": "./languages/",
+        "languages_list": {
+            "ru": "ru_lang.json",
+            "en": "ru_lang.json"
+        }
     },
     "database": {
-        "host": "localhost",
-        "user": "root",
-        "password": "root",
-        "database": "dshex-bot",
+        "host": "",
+        "user": "",
+        "password": "",
+        "database": "",
         "port": 3306
     }
 }
