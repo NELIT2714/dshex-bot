@@ -1,13 +1,8 @@
 import json
 import logging
-import os
+import pymongo
 
 from aiogram import Dispatcher, Bot
-from aiogram import types
-
-from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
 
 with open("config.json") as config:
     config = json.load(config)
@@ -17,13 +12,10 @@ TOKEN = config["bot"]["token"]
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
 
-db_host, db_user, db_password, db_port, schema = config["database"]["host"], config["database"]["user"], config["database"]["password"], config["database"]["port"], config["database"]["database"]
+db_host, db_user, db_password, db_port, database = config["database"]["host"], config["database"]["user"], config["database"]["password"], config["database"]["port"], config["database"]["database"]
 
-engine = create_engine(f"mysql+pymysql://{db_user}:{db_password}@{db_host}:{db_port}/{schema}", pool_pre_ping=True, pool_recycle=3600)
-Session = sessionmaker(bind=engine)
-Base = declarative_base()
-
-Base.metadata.create_all(engine)
+client = pymongo.MongoClient(f"mongodb://{db_user}:{db_password}@{db_host}:{db_port}")
+database = client[database]
 
 
 async def run_bot():
@@ -31,6 +23,6 @@ async def run_bot():
     await dp.start_polling(bot)
 
 
-from bot import models
 from bot.commands import start, db
-from bot.callbacks import main_menu, services, portfolio, info, my_orders, admin
+from bot.callbacks import main_menu, services, admin
+# , , portfolio, info, my_orders,

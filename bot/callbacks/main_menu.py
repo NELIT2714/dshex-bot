@@ -1,7 +1,7 @@
 from aiogram import types
 from aiogram.filters import Command
 
-from bot import dp, Session
+from bot import dp, database
 from bot.functions import get_lang
 from bot.functions import send_message, check_user
 
@@ -9,17 +9,14 @@ from bot.functions import send_message, check_user
 @dp.message(Command("menu"))
 @dp.callback_query(lambda query: query.data in ["main_menu", "back_main"])
 async def main_menu_callback(callback_query: types.CallbackQuery) -> None:
-    from bot.models import Users
-
     check_user(callback_query)
     lang_data = get_lang(callback_query.from_user.id)
 
-    with Session() as session_db:
-        user = session_db.query(Users).filter_by(telegram_id=callback_query.from_user.id).first()
+    user = database["users"].find_one({"telegram_id": callback_query.from_user.id})
 
     await send_message(
         callback=callback_query,
-        text=lang_data["messages"]["info"]["main_menu"].replace("{user}", user.first_name),
+        text=lang_data["messages"]["info"]["main_menu"].replace("{user}", user["first_name"]),
         keyboard=types.InlineKeyboardMarkup(inline_keyboard=[
             [
                 types.InlineKeyboardButton(text=lang_data["buttons"]["services"], callback_data="services"),

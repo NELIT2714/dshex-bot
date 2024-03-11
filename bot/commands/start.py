@@ -1,7 +1,7 @@
 from aiogram.filters import CommandStart
 from aiogram.types import Message
 from aiogram import types
-from bot import bot, dp, Session
+from bot import bot, dp
 from bot.functions import get_lang, check_user
 
 

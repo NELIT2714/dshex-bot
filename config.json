@@ -1,12 +1,17 @@
 {
     "bot": {
-        "token": "6926464019:AAFVIWXFAEokgNG9wL23e2hJfWMlF7lBwGk"
+        "token": "6389922353:AAH0eZW1xCNq2D1Ub3yX3a-_fS_SQD9M7xk",
+        "languages_folder": "./languages/",
+        "languages_list": {
+            "ru": "ru_lang.json",
+            "en": "ru_lang.json"
+        }
     },
     "database": {
-        "host": "localhost",
-        "user": "root",
-        "password": "root",
-        "database": "dshex-bot",
-        "port": 3306
+        "host": "10.10.10.100",
+        "user": "nelit",
+        "password": "CKcYKMUy_XgqEsq4Qdjz",
+        "database": "dshex_bot",
+        "port": 27027
     }
 }
